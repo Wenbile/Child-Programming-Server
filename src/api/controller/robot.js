@@ -19,8 +19,6 @@ module.exports = class extends Base {
             blockArr.push(blockDic)
         }
 
-        // blockArr[0].active = true
-
         return this.success(blockArr);
     }
 
@@ -37,8 +35,6 @@ module.exports = class extends Base {
         }else {
             return this.fail("修改失败");
         }
-        // const blocks = await model.where({type:0}).select();
-
     }
 
     async addBlockAction() {
@@ -48,14 +44,12 @@ module.exports = class extends Base {
         const model = this.model('blocks');
         var max_id = await model.max('id') + 1
 
-        const re = model.add({id:max_id,name:name,blocks:blocks,type:type,img:"default_science.png"})
+        const re = model.add({id:max_id,name:name,blocks:blocks,type:type,img:"art.jpg"})
         if(re){
             return this.success({id:max_id});
         }else {
             return this.fail("新增失败");
         }
-        // const blocks = await model.where({type:0}).select();
-
     }
 
     async deleteBlockAction() {
@@ -70,8 +64,6 @@ module.exports = class extends Base {
         }else {
             return this.fail("删除失败");
         }
-        // const blocks = await model.where({type:0}).select();
-
     }
 
 
